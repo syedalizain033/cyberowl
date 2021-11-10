@@ -1,0 +1,15 @@
+{% extends "scanner/layout.html" %}
+{% block title %}
+IP Scanner
+{% endblock %}
+{% block content %}
+<div>
+<h2>Scan IP Address</h2>
+<form method="POST">
+<table>
+{{ form }}
+</table>
+{% csrf_token %}
+<button type="submit">Scan</button>
+</div>
+{% endblock %}

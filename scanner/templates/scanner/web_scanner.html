@@ -1,0 +1,44 @@
+{% extends "scanner/layout.html" %}
+{% block title %}
+Web Scanner Tool
+{% endblock %}
+{% block content %}
+
+<style type="text/css">
+	body, html {   
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display:table;
+}
+body {
+    display:table-cell;
+   
+}
+form {
+    display:table;/* shrinks to fit content */
+    margin:auto;
+}
+
+
+</style>
+
+
+<form method="POST">
+	<div id="outerDiv"> <!-- This div is the outermost div of the form-->
+
+<table>
+{% csrf_token %}
+<div id="liveAlertPlaceholder"></div>
+{{ form }}
+</table>
+
+<button type="submit"class="btn btn-primary" >Scan</button>
+</div>
+</form>
+
+
+
+
+{% endblock %}

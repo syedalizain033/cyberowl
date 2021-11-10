@@ -1,0 +1,40 @@
+{% extends "scanner/layout.html" %}
+{% block title %}
+Web Scan Results
+{% endblock %}
+<style type="text/css">
+
+.hide{
+  display:none;
+}
+.show{
+  display:block;
+}
+gotoScanner{
+  float: center;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+
+
+{% block content %}
+{% if subdomains %}
+<h2>{{ type }}</h2>
+<table>
+ {% for i in data %}
+<p>{{ i }}<br></p>
+{% endfor %}
+</table>
+{% endif %}
+
+{% if  wayback %}
+<h2>{{ type }}<h2>
+<a href="{% url 'downloadWayback' %}">
+<input class="btn btn-primary" type"submit" value="Download File"></a>
+{% endif %}
+<a href="{% url 'webscanner' %}">
+<input class="btn btn-primary"  type="submit"  value="Go To Scanner"></a>
+{% endblock %}
