@@ -2,6 +2,8 @@
 {% block title %}
 Web Scan Results
 {% endblock %}
+
+
 <style type="text/css">
 
 .hide{
@@ -17,23 +19,31 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
 }
+
 </style>
 
 
 {% block content %}
 {% if subdomains %}
+<div style="text-align: center;">
 <h2>{{ type }}</h2>
 <table>
- {% for i in data %}
+ {% for i in subdomains %}
 <p>{{ i }}<br></p>
 {% endfor %}
 </table>
+</div>
 {% endif %}
 
 {% if  wayback %}
+<div style="text-align: center;">
 <h2>{{ type }}<h2>
-<a href="{% url 'downloadWayback' %}">
-<input class="btn btn-primary" type"submit" value="Download File"></a>
+{% for i in   wayback %}
+<p>{{ i }}</p>
+{% endfor %}
+<p>
+<p>JS: {{ jsLinks }}</p>
+</div>
 {% endif %}
 <a href="{% url 'webscanner' %}">
 <input class="btn btn-primary"  type="submit"  value="Go To Scanner"></a>

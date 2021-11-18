@@ -1062,3 +1062,10 @@ http://www.asfaa.org:80/wwday.php?id=398
 http://www.asfaa.org:80/wwday.php?id=436
 http://www.asfaa.org:80/wwday.php?id=452
 http://www.asfaa.org/wwday.php?id=456
+http://asfaa.org/
+http://www.asfaa.org/
+http://www.asfaa.org/news.php?id=426
+http://www.asfaa.org/news.php?id=447
+http://www.asfaa.org/news.php?id=448
+http://asfaa.org/robots.txt
+http://www.asfaa.org/robots.txt

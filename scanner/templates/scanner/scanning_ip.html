@@ -8,8 +8,12 @@ Scanning IP
 <p>
 {{ data }}
 </p>
+<a href="{% url 'ip_scanner' %}">
+<input class="btn btn-primary"  type="submit"  value="Go To Scanner"></a>
 {% else %}
-{{ error }}
+<script>
+alert('{{ error }}');
+</script>
 <br>
 <h2>Scan IP Address</h2>
 <form method="POST">

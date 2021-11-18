@@ -30,7 +30,7 @@ def ip_scanner(request):
         ("4", "Active Network Scan"), ("5", "Intense Network Scan"), )
         ip=form.cleaned_data['ip']
         choice=int(form.cleaned_data['choice'])
-        choice=scanTypes[choice][1]
+        choice=scanTypes[int(choice)-1][1]
         data=str(ip)+" "+str(choice)
         if (re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$",ip)):
             
@@ -78,30 +78,38 @@ def webscanner(request):
                 data=subdomains
                 type="Subdomains of {0}".format(str(webUrl))
 #                print(type(data))
-
+                subdomains=tuple(data)
                 #data = webUrl+" "+choice
                 return render(request,'scanner/webscan_results.html', {
                     'subdomains': subdomains, 'type': type
                     })
-            elif choice == 3:
+
+            #wayback urls
+            if choice == "3": 
                 wayback = obj.wayBackUrls(webUrl)
                 type="All Links of {0}".format(str(webUrl))
                 jsLinks=[]
                 pyfiles=[]
-                for i in wayback:
+                waybacklist=list(wayback)
+                for i in waybacklist:
                     if i[-3:] == ".js": #collecting JS files
                         jsLinks.append(i)
                     elif i[-3:]==".py": #collect Py Files if found and critical
                         pyfiles.append(i)
 
-                data = wayback
-                jsData=tuple(jsLinks)
-                pyData=tuple(pyfiles)
-                
-                return render(request,'scanner/webscan_results.html', {'wayback': wayback})
+                data = tuple(wayback)
+                jsLinks=tuple(jsLinks)
+                pyfiles=tuple(pyfiles)
+                type="All urls of {0}".format(str(webUrl))
+                print(data)
+                return render(request,'scanner/webscan_results.html', {'wayback': tuple(wayback), 'type':type, 'jsLinks':jsLinks })
     else:
         form=WebScannerForm()
         return render(request, 'scanner/web_scanner.html', {'form':form})
+#----------------------------------------------------------------------
+
+
+
 #----------------------------------------------------------------------
 
 #def convertIntoPdf(request):

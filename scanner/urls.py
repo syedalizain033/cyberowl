@@ -1,3 +1,4 @@
+from os import name
 from django.urls import path
 from scanner import views
 
@@ -13,6 +14,6 @@ urlpatterns = [
     path("ipscan", views.ip_scanner, name='ip_scanner'),
     path("webscan/", views.webscanner, name="webscanner"),
     path("webscan", views.webscanner, name="webscanner"),
-    path('<str:filepath>/',views.downloadWayback, name='downloadWayback')
+    path('<str:filepath>/',views.downloadWayback, name='downloadWayback'),
     
 ]

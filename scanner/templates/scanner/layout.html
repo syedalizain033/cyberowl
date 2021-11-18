@@ -23,7 +23,7 @@ window.onclick = function(event) {
 <style type="text/css">
      
 navbar{
-  text-align: center;
+ 
 }
 
 .dropbtn {
@@ -82,13 +82,14 @@ navbar{
 
 <body>
     <div class="navbar">
-<div style="text-align: center;">
+<div style="">
     <a href="{% url 'home' %}" class="navbar-item">Home</a>
      <div class="dropdown">
   <button onclick="myFunction()" class="dropbtn">Scan Types</button>
   <div id="myDropdown" class="dropdown-content">
     <a href="">Web Scanner</a>
     <a href="{% url 'ip_scanner' %}">Network Scanner</a>
+    <a href="#">Web Attacking</a>
   </div>
 </div> 
     
