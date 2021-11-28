@@ -14,6 +14,8 @@ urlpatterns = [
     path("ipscan", views.ip_scanner, name='ip_scanner'),
     path("webscan/", views.webscanner, name="webscanner"),
     path("webscan", views.webscanner, name="webscanner"),
-    path('<str:filepath>/',views.downloadWayback, name='downloadWayback'),
+  #  path('<str:filepath>/',views.downloadWayback, name='downloadWayback'),
+    path("webattack/", views.webattack, name="webattack"),
+    path("webattack", views.webattack, name="webattack"),
     
 ]

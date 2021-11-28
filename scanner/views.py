@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from .forms import IPScannerForm, WebScannerForm
+from .forms import IPScannerForm, WebAttackForm, WebScannerForm
 from scanner.Network_Scanner.Hosted_Website import Hosted_Website
 import re
 import os
@@ -15,11 +15,11 @@ def home(request):
 def scan(request):
     return render(request, 'scanner/scanner.html')
 
-def downloadWayback(request):
-    from downloadFile import Downloader
-    download = Downloader
-    response=download.downloadWayBackFile()
-    return response
+#def downloadWayback(request):
+#    from downloadFile import Downloader
+#    download = Downloader
+#    response=download.downloadWayBackFile()
+#    return response
 #------------------------------------------------------------------------------------
 def ip_scanner(request):
     form = IPScannerForm(request.POST)
@@ -41,6 +41,8 @@ def ip_scanner(request):
     else:
         form=IPScannerForm()
         return render(request, 'scanner/ip_scanner.html', {'form':form})
+
+
 #--------------------------------------------------------------------------------
 def intenseSubdomainEnumeration(inputWeb): #returns subdomains as list 'discovered_subdomains' with assetfinder
         OScommand=("echo '{0}' | subdomain_finding > asset.txt").format(inputWeb)
@@ -126,3 +128,8 @@ def contact(request):
     
     return render(request, 'scanner/contact_us.html')
 
+#---------------Attacking--------------------------------
+
+def webattack(request):
+    form=WebAttackForm()
+    return render (request, 'scanner/webattack.html', {'form':form})
