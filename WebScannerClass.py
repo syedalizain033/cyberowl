@@ -70,3 +70,20 @@ class WebScannerClass:
         return tupleData
 
 
+    def gitLeaks(weburl):
+        OScommand=("./git-secret {0} > gitleaks.txt").format(weburl)
+        os.system(OScommand)
+        file=open('gitleaks.txt')
+        content=file.readlines()
+        content=tuple(content)
+        return content
+
+    def sqlInjection(weburl):
+        OScommand=("echo {0} | sqlmap > sqlmap.txt").format(weburl)
+        os.system(OScommand)
+        file=open('sqlmap.txt')
+        content=file.readlines()
+        content=tuple(content)
+        return content
+
+

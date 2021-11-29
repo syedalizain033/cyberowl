@@ -131,5 +131,30 @@ def contact(request):
 #---------------Attacking--------------------------------
 
 def webattack(request):
-    form=WebAttackForm()
-    return render (request, 'scanner/webattack.html', {'form':form})
+    from WebScannerClass import WebScannerClass 
+    obj=WebScannerClass
+    if request.method=="POST":
+        print("POST")
+        form=WebAttackForm(request.POST)
+        if form.is_valid():
+            weburl=form.cleaned_data['attackurl']
+            attacktype=form.cleaned_data['attacktype']
+            if attacktype=="1": #git leakage attack
+                if "github.com/" in weburl:
+                    
+                     
+                    data=obj.gitLeaks(weburl)
+                    return render(request, 'scanner/webattackresults.html', {'data':data})
+                    
+                else:
+                    error="Invalid URL. Please Enter Github URL if scanning for Git Leaks. "
+                    return render(request, 'scanner/webattackresults.html', {'error':error})
+            if attacktype=="2": #sql injection
+                if "=" in weburl:
+                    data = obj.sqlInjection(weburl)
+                    return render(request, 'scanner/webattackresults.html', {'data':data})
+                
+
+    else:
+        form=WebAttackForm()
+        return render (request, 'scanner/webattack.html', {'form':form})

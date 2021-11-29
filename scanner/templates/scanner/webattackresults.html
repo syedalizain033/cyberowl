@@ -1,0 +1,19 @@
+{% extends "scanner/layout.html" %}
+
+{% block title %}Attack Results{% endblock title %}
+
+{% block content %}
+
+{% if error %}
+{{ error }}
+{% endif %}
+
+{% if data %}
+{% for i in data %}
+<p>{{ i }}</p>
+{% endfor %}
+{% endif %}
+
+<a href="{% url 'webattack' %}">
+<input class="btn btn-primary"  type="submit"  value="Go To Web Attack"></a>
+{% endblock content %}
