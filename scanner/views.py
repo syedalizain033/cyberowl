@@ -104,7 +104,8 @@ def webscanner(request):
                 pyfiles=tuple(pyfiles)
                 type="All urls of {0}".format(str(webUrl))
                 print(data)
-                return render(request,'scanner/webscan_results.html', {'wayback': tuple(wayback), 'type':type, 'jsLinks':jsLinks })
+                return render(request,'scanner/webscan_results.html', {'wayback': tuple(wayback), 
+                'type':type, 'jsLinks':jsLinks })
     else:
         form=WebScannerForm()
         return render(request, 'scanner/web_scanner.html', {'form':form})

@@ -7,13 +7,15 @@
 {% if error %}
 {{ error }}
 {% endif %}
-
+<div style="width:50%;">
 {% if data %}
 {% for i in data %}
+
 <p>{{ i }}</p>
+
 {% endfor %}
 {% endif %}
-
+</div>
 <a href="{% url 'webattack' %}">
 <input class="btn btn-primary"  type="submit"  value="Go To Web Attack"></a>
 {% endblock content %}
