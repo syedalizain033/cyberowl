@@ -24,17 +24,20 @@ def scan(request):
 def ip_scanner(request):
     form = IPScannerForm(request.POST)
     if request.method=="POST" and form.is_valid() :
-
-        
+        from NetworkScannerClass import NetworkScanner
+        obj=NetworkScanner()        
         scanTypes =( ("1", "DNS Look Up"), ("2", "Hosted Website"), ("3", "Port Knocking"),
         ("4", "Active Network Scan"), ("5", "Intense Network Scan"), )
         ip=form.cleaned_data['ip']
         choice=int(form.cleaned_data['choice'])
-        choice=scanTypes[int(choice)-1][1]
-        data=str(ip)+" "+str(choice)
+        #choice=scanTypes[int(choice)-1][1]
+        #data=str(ip)+" "+str(choice)
         if (re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$",ip)):
-            
-            return render(request, 'scanner/scanning_ip.html',{'data':data})
+            if choice=="1":
+                data=obj.DNSLookUp(ip)
+                return render(request, 'scanner/scanning_ip.html',{'data':data})
+            if choice=="2":
+                
         else:
             form=IPScannerForm()
             return render(request, 'scanner/scanning_ip.html',{'error':"Invalid IP Address.", 'form':form,})

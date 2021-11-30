@@ -5,8 +5,8 @@ from django.forms import ModelForm, widgets
 
 
 class IPScannerForm(forms.Form):
-    scanTypes =( ("1", "DNS Look Up"), ("2", "Hosted Website"), ("3", "Port Knocking"), 
-("4", "Active Network Scan"), ("5", "Intense Network Scan"), )
+    scanTypes =( ("1", "DNS Look Up"), ("2", "Hosted Website"), 
+("3", "Active Network Scan"), ("4", "Intense Network Scan"), ('5','CVE Vulnerability Scanner'),)
     ip=forms.CharField(max_length=15, required=True, label="IP Address")
     choice=forms.ChoiceField(choices=scanTypes, required=True)
 
