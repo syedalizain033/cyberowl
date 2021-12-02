@@ -5,9 +5,11 @@ Scanning IP
 {% block content %}
 
 {% if data %}
+{% for i in data %}
 <p>
-{{ data }}
+    {{ i }}
 </p>
+{% endfor %}
 <a href="{% url 'ip_scanner' %}">
 <input class="btn btn-primary"  type="submit"  value="Go To Scanner"></a>
 {% else %}

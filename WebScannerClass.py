@@ -26,7 +26,7 @@ class WebScannerClass:
 
 
     def nextLevelSubDomains(inputWeb):
-        import requests
+        
         import requests as req
         domain=inputWeb
 #        file = open(os.path.join(settings.BASE_DIR, 'subdomains-10000.txt'))

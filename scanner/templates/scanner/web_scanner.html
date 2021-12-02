@@ -24,8 +24,7 @@ form {
 
 </style>
 
-
-<form method="POST">
+<form method="POST" id="form1">
 	<div id="outerDiv"> <!-- This div is the outermost div of the form-->
 
 <table>
@@ -34,10 +33,19 @@ form {
 {{ form }}
 </table>
 
-<button type="submit"class="btn btn-primary" >Scan</button>
+<button id="btn_submit" type="submit" class="btn btn-primary" >Scan</button>
 </div>
 </form>
-
+{% load static %}
+<img id="img1" src="{% static 'scanner/assets/img/loading.gif'%}" style="height: 100vh; width: 100vw; display: none;">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#form1").submit(function() {
+            $("#img1").show();
+        });
+    });
+</script>
 
 
 
