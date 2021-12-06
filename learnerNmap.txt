@@ -1,6 +1,6 @@
-Starting Nmap 7.80 ( https://nmap.org ) at 2021-12-05 20:20 UTC
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-12-06 03:54 UTC
 Nmap scan report for 192.168.100.12
-Host is up (0.0040s latency).
+Host is up (0.0045s latency).
 Not shown: 977 closed ports
 PORT     STATE SERVICE
 21/tcp   open  ftp
@@ -27,4 +27,4 @@ PORT     STATE SERVICE
 8009/tcp open  ajp13
 8180/tcp open  unknown
 
-Nmap done: 1 IP address (1 host up) scanned in 0.34 seconds
+Nmap done: 1 IP address (1 host up) scanned in 0.31 seconds

@@ -1,0 +1,1 @@
+'vsftpd' | '2.3.4' | '/home/capt/FYP/v1/cyberowl/exploits/vsftpd/exploit_1.py' 

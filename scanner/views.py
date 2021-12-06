@@ -38,7 +38,7 @@ def ip_scanner(request):
         #data=str(ip)+" "+str(choice)
         if  (re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$",ip)):
             if choice=="1":
-                data=obj.DNSLookup(ip)
+                data=obj.hostIP(ip)
                 return render(request, 'scanner/scanning_ip.html',{'data':data})
 
             if choice=="2":
@@ -63,7 +63,7 @@ def ip_scanner(request):
 
             if choice=="7":
                 data=obj.exploitLearner(ip)
-                data="exploit_1"
+                #data="exploit_1"
                 return render(request, 'scanner/scanning_ip.html',{'warning':data})
 
 
