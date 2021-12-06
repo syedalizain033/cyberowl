@@ -4,6 +4,10 @@
 
 {% block content %}
 
+{% if warning %}
+<h2> {{ warning }} </h2>
+{% endif %}
+
 {% if error %}
 {{ error }}
 {% endif %}

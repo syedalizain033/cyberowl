@@ -99,4 +99,9 @@ class WebScannerClass:
         content=tuple(content)
         return content
 
+    def intenseWebScanningAttack(url):
+        import os 
+        os.system("./webIntenseScan.sh {0}").format(url)
+        return True
+
 

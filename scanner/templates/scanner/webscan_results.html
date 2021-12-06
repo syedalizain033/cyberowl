@@ -24,6 +24,9 @@ table, th, td {
 
 
 {% block content %}
+{% if warning %}
+<h2> {{ warning }} </h2>
+{% endif %}
 {% if subdomains %}
 <div style="text-align: center;">
 <h2>{{ type }}</h2>

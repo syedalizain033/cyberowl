@@ -8,4 +8,6 @@ sudo apt install prips
 sudo apt install sqlmap
 sudo apt install nmap
 sudo apt install metasploit
+sudo apt -y install libxml2-utils
+
  

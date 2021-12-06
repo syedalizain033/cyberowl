@@ -41,6 +41,65 @@ class NetworkScanner:
 		return data
 			
 
+	def CVEscanner(ip):
+		command="nmap -sV --script=vulscan/vulscan.nse  {0} > CVEscan.txt".format(ip)
+		os.system(command)
+		file=open("CVEscan.txt")
+		content=file.readlines()
+		content=tuple(content)
+		return content
+
+
+	def SuitableExploits(ip):
+		command="./suitableExploits.sh {0}".format(ip)
+		os.system(command)
+		file=open('suitableExploits.txt')
+		data=file.readlines()
+		data=tuple(data)
+		return data
+
+	def exploitLearner_2(ip):
+		command="ls ./exploits/vsftpd > exploits_list.txt"
+		os.system(command)
+		file=open('exploits_list.txt')
+		content=file.readlines()
+		for i in content:
+			os.system('./exploits/vsftpd/{0} {1} > FTP.txt'.format(i, ip))
+			file2=open('FTP.txt')
+			content2=file2.readlines()
+			if "Got Shell" in content2:
+				return i
+			
+
+
+	def exploitLearner(ip):
+		command="nmap {0} > learnerNmap.txt".format(ip)
+		os.system(command)
+		file=open('learnerNmap.txt')
+		result=file.readlines()
+		if "vsftpd" in result or result==result:
+			command="ls ./exploits/vsftpd > exploits_list.txt"
+			os.system(command)
+			file=open('exploits_list.txt')
+			content=file.readlines()
+			for i in content:
+				os.system('./exploits/vsftpd/{0} {1} > FTP.txt'.format(i, ip))
+				file2=open('FTP.txt')
+				content2=file2.readlines()
+				if "Got Shell" in content2:
+					import csv
+					header=['service','version','exploit']
+					data=[['FTP','2.3.4',i]]
+					with open ('exploits.csv', 'w', encoding='UTF8', newline='') as f:
+						writer=csv.writer(f)
+						writer.writerow(header)
+						writer.writerows(data)
+						return i
+		else:
+			return "exploit_1"
+    			
+
+
 	 
 
 

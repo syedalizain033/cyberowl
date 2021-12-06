@@ -1,8 +1,7 @@
 #! /bin/bash
 echo "Tester Owl web intense scanner"
-mkdir $1
-path=$(pwd)
-cd 
+cd
+path=$(pwd) 
 cd Desktop
 mkdir TesterOwl && cd TesterOwl
 echo $1 | $path/subdomain_finding > subdomains.txt

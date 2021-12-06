@@ -30,6 +30,7 @@ form {
 <table>
 {% csrf_token %}
 <div id="liveAlertPlaceholder"></div>
+<p>URL Pattern: http://site.com</p>
 {{ form }}
 </table>
 
@@ -37,7 +38,7 @@ form {
 </div>
 </form>
 {% load static %}
-<img id="img1" src="{% static 'scanner/assets/img/loading.gif'%}" style="height: 100vh; width: 100vw; display: none;">
+
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
     $(document).ready(function() {

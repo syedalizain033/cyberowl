@@ -3,7 +3,9 @@
 Scanning IP
 {% endblock %}
 {% block content %}
-
+{% if warning %}
+<h2>{{ warning }} </h2> 
+{% endif %}
 {% if data %}
 {% for i in data %}
 <p>
@@ -12,7 +14,8 @@ Scanning IP
 {% endfor %}
 <a href="{% url 'ip_scanner' %}">
 <input class="btn btn-primary"  type="submit"  value="Go To Scanner"></a>
-{% else %}
+{% endif %}
+{% if error %}
 <script>
 alert('{{ error }}');
 </script>

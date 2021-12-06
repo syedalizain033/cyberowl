@@ -24,7 +24,7 @@
 8009/tcp  open  ajp13
 8180/tcp  open  unknown
 8787/tcp  open  msgsrvr
-37254/tcp open  unknown
-39910/tcp open  unknown
-53012/tcp open  unknown
-53498/tcp open  unknown
+33344/tcp open  unknown
+36269/tcp open  unknown
+45972/tcp open  unknown
+51830/tcp open  unknown
