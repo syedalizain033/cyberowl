@@ -1,1 +1,1 @@
-34.174.7.69.in-addr.arpa domain name pointer w34.ezot.com.
+Host 143.16.168.192.in-addr.arpa. not found: 3(NXDOMAIN)

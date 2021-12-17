@@ -64,7 +64,7 @@ def ip_scanner(request):
             if choice=="7":
                 data=obj.exploitLearner(ip)
                 #data="exploit_1"
-                return render(request, 'scanner/scanning_ip.html',{'warning':data})
+                return render(request, 'scanner/scanning_ip.html',{'data':data})
 
 
             #else:
@@ -215,16 +215,15 @@ def webattack(request):
                         
                         data=obj.gitLeaks(weburl)
                         return render(request, 'scanner/webattackresults.html', {'data':data})
-                    else:
-                        warning="Please enter a valid Github URL"
+                    
                         
-                else:
-                        error="Invalid URL. Please Enter Github URL if scanning for Git Leaks. "
-                        return render(request, 'scanner/webattackresults.html', {'error':error})
+                    else:
+                            error="Invalid URL. Please Enter Github URL if scanning for Git Leaks. "
+                            return render(request, 'scanner/webattackresults.html', {'error':error})
                 if attacktype=="2": #sql injection
-                    if "=" in weburl:
-                        data = obj.sqlInjection(weburl)
-                        return render(request, 'scanner/webattackresults.html', {'data':data})
+                   # if "=" in weburl:
+                    data = obj.sqlInjection(weburl)
+                    return render(request, 'scanner/webattackresults.html', {'data':data})
 
                 if attacktype=="3": # Intense Attack
                     weburl=webCut(weburl)

@@ -8,9 +8,9 @@ Scanning IP
 {% endif %}
 {% if data %}
 {% for i in data %}
-<p>
-    {{ i }}
-</p>
+ <p>
+     {{i}}
+ </p>
 {% endfor %}
 <a href="{% url 'ip_scanner' %}">
 <input class="btn btn-primary"  type="submit"  value="Go To Scanner"></a>

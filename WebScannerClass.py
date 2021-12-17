@@ -85,19 +85,12 @@ class WebScannerClass:
         content=file.readlines()
         data=[]
         for i in content:
-            if "starting @" in i:
-                data.append(i)
-            if "GET " in i:
-                data.append(i)
-            if "testing URL" in i:
-                data.append(i)
             if "Payload" in i:
                 data.append(i)
-            if "retrieved" in i:
-                data.append(i)
+            
 
-        content=tuple(content)
-        return content
+        data=tuple(data)
+        return data
 
     def intenseWebScanningAttack(url):
         import os 

