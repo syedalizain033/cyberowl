@@ -18,9 +18,14 @@ Self Learning Data
 {% endif %}
 
 {% if string %}
-
-{{ string }}
+<script>
+alert("{{ string }}")
+</script>
 
 {% endif %}
+<a href="{% url 'home' %}">
+    
+    <input class="btn btn-primary"  type="submit"  value="Go To Home Page"
+</a>
 
 {% endblock  %}}

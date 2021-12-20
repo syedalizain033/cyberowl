@@ -84,7 +84,8 @@ def ip_scanner(request):
         return render(request, 'scanner/ip_scanner.html', {'form':form})
 
 #------------------------------------------------
-
+secret_key="jahfkuhagkljdnghsdlgk_abfkbf"
+API_KEY: "ajsbhfkjhf"
 
 def self_learn(request):
 
