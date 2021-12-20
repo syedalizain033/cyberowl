@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
+
+from NetworkScannerClass import NetworkScanner
 from .forms import IPScannerForm, WebAttackForm, WebScannerForm
 from scanner.Network_Scanner.Hosted_Website import Hosted_Website
 import re
@@ -66,6 +68,9 @@ def ip_scanner(request):
                 #data="exploit_1"
                 return render(request, 'scanner/scanning_ip.html',{'data':data})
 
+            
+
+
 
             #else:
             #    form=IPScannerForm()
@@ -77,6 +82,25 @@ def ip_scanner(request):
     else:
         form=IPScannerForm()
         return render(request, 'scanner/ip_scanner.html', {'form':form})
+
+#------------------------------------------------
+
+
+def self_learn(request):
+
+
+    from NetworkScannerClass import NetworkScanner
+    obj=NetworkScanner
+    data = obj.viewLearntData
+
+    if isinstance(data, tuple):
+        return render(request, 'scanner/self_learn.html', {'data': data})
+    elif isinstance(data, str):
+        string=str(data)
+        return render(request, 'scanner/self_learn.html', {'string': string})
+    else:
+        return render(request, 'scanner/self_learn.html', {'string': data})
+
 
 
 #--------------------------------------------------------------------------------

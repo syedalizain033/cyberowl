@@ -164,3 +164,26 @@ class NetworkScanner:
 
     def NetworkFullyScanner(ip):
         a = 1  # dummy for now. To be edited.
+
+    def viewLearntData(): #returns learnt data from the self_learner.csv file
+        import os, pandas as pd
+        
+
+        import os, pandas as pd
+        
+        os.system("pwd > path.txt")
+        file=open("path.txt")
+        path=file.readline()
+        path=path.strip("\n")
+        path+="/ai/self-learner.csv"
+        if (os.path.isfile(path)):
+            if (os.stat(path).st_size==0):
+                return "Learning file is empty."
+            else:
+                df=pd.read_csv(path)
+                list=[]
+                for i in df:
+                    list.append(i)
+                return tuple(list)
+        else:
+            return "Learner file not existing."

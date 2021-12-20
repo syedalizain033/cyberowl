@@ -17,5 +17,7 @@ urlpatterns = [
   #  path('<str:filepath>/',views.downloadWayback, name='downloadWayback'),
     path("webattack/", views.webattack, name="webattack"),
     path("webattack", views.webattack, name="webattack"),
+    path("self_learn/", views.self_learn, name="self_learn"),
+    path("self_learn", views.self_learn, name="self_learn"),
     
 ]

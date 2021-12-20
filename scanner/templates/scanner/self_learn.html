@@ -1,0 +1,26 @@
+{% extends "scanner/layout.html" %}
+{% block title %}
+Self Learning Data
+{% endblock %}
+
+{% block  content%}
+
+{% if data %}
+<p> 
+
+{% for i in data  %}
+
+{{ i }} 
+
+{% endfor %}
+</p>
+
+{% endif %}
+
+{% if string %}
+
+{{ string }}
+
+{% endif %}
+
+{% endblock  %}}
